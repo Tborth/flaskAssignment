@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dashboard</title>
+           
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  
+
+  </head>
+ <style>
+  
+ </style>
+  <body>
+    <h1>{{ filename }}</h1>
+    <a href="/dashboard"><button> Back To Dashboard</button></a>
+    <a href="/home"> <button> HOME</button></a>
+    <a href="/logout"> <button> Logout</button></a>
+    <table>
+      <thead>
+        <tr>
+            {% for data in filedata%}
+            
+              <th>{{data }}</th>
+            
+            
+            {% endfor %}
+            </tr>
+      </thead>
+      <tbody>
+       
+        {% for key,value in filedata.iterrows() %}
+                 
+            <tr>{% for data in value %}
+                <td>{{data}} </td>
+                {% endfor %} 
+            </tr>
+        {% endfor %}
+        
+        
+      </tbody>
+    </table>
+  </body>
+</html>

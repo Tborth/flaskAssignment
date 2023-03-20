@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dashboard</title>
+
+               
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    
+  
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <a href="/logout"> <button> Logout</button></a>
+    <a href="/home"> <button> HOME</button></a>
+    <table>
+      <thead>
+        <tr>
+          <th>filename</th>
+          <th>download</th>
+          <th>show data</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in users %}
+        <tr>
+          <td>{{file }}</td>
+          <td><a href="/download/{{file}}"> <button> download</button></a></td>
+          <td><a href="/show/{{file}}" > <button> show data </button> </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
